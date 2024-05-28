@@ -4,9 +4,12 @@ export class UpdateProfileDto {
   @IsString()
   username?: string;
 
-  // @IsString()
+  @IsString()
+  email?: string;
+
+  @IsString()
   profilePicture?: string;
 
   // @IsString()
-  status?: string;
+  // status?: string;
 }

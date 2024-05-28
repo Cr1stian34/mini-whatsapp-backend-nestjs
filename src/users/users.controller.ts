@@ -43,7 +43,7 @@ export class UsersController {
   // }
 
   @UseGuards(JwtAuthGuard)
-  @Put('/me')
+  @Patch('/me')
   updateProfile(@Req() req, @Body() updateProfile: UpdateProfileDto) {
     const userId = req.user.userId;
     console.log('req', req.user);
