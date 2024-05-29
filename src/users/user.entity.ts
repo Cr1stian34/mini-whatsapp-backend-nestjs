@@ -1,6 +1,4 @@
 import { channel } from 'diagnostics_channel';
-import { Chat } from 'src/chats/chat.entity';
-import { Message } from 'src/messages/message.entity';
 import {
   Column,
   Entity,
@@ -30,9 +28,9 @@ export class User {
   @Column({ nullable: true })
   status?: string;
 
-  @ManyToMany(() => Chat, (chat) => chat.users)
-  chats: Chat[];
+  // @ManyToMany(() => Message, (message) => message.sender)
+  // sentMessages: Message[];
 
-  @OneToMany(() => Message, (message) => message.sender)
-  messages: Message[];
+  // @OneToMany(() => Message, (message) => message.recipient)
+  // receivedMessages: Message[];
 }

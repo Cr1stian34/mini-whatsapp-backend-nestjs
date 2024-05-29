@@ -2,9 +2,9 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
-import { ChatsModule } from './chats/chats.module';
 import { ChatGateway } from './chat/chat.gateway';
-import { MessagesModule } from './messages/messages.module';
+import { ChatService } from './chat/chat.service';
+import { ChatModule } from './chat/chat.module';
 
 @Module({
   imports: [
@@ -20,10 +20,9 @@ import { MessagesModule } from './messages/messages.module';
     }),
     AuthModule,
     UsersModule,
-    ChatsModule,
-    MessagesModule,
+    ChatModule,
   ],
   controllers: [],
-  providers: [ChatGateway],
+  providers: [ChatGateway, ChatService],
 })
 export class AppModule {}
