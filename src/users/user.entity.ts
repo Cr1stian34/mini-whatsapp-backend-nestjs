@@ -1,4 +1,5 @@
 import { channel } from 'diagnostics_channel';
+import { Message } from 'src/messages/message.entity';
 import {
   Column,
   Entity,
@@ -25,12 +26,12 @@ export class User {
   @Column({ nullable: true })
   profilePicture?: string;
 
-  @Column({ nullable: true })
-  status?: string;
+  @Column({ default: 'active' })
+  status: string;
 
-  // @ManyToMany(() => Message, (message) => message.sender)
-  // sentMessages: Message[];
+  @ManyToMany(() => Message, (message) => message.sender)
+  sentMessages: Message[];
 
-  // @OneToMany(() => Message, (message) => message.recipient)
-  // receivedMessages: Message[];
+  @OneToMany(() => Message, (message) => message.recipient)
+  receivedMessages: Message[];
 }
